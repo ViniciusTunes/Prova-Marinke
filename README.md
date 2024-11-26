@@ -30,7 +30,7 @@ Este sistema permite consultas que facilitam a operação do restaurante.
 Exemplo de consulta personalizada:
 Total de vendas por funcionário e mesa:
 
-```SELECT 
+```mysql SELECT 
     f.nome AS Funcionario,
     m.id AS Mesa,
     SUM(p.preco * pp.quantidade) AS Total
