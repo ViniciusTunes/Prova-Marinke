@@ -23,3 +23,28 @@ Pedidos: Relaciona mesas com produtos solicitados.
 Produtos_Pedidos: Relacionamento entre pedidos e itens.
 Pagamentos: Detalha métodos e valores recebidos.
 Vendas: Consolidado das transações por mesa.
+
+🔍 Consultas e Procedimentos Implementados
+Este sistema permite consultas que facilitam a operação do restaurante.
+
+Exemplo de consulta personalizada:
+Total de vendas por funcionário e mesa:
+
+SELECT 
+    f.nome AS Funcionario,
+    m.id AS Mesa,
+    SUM(p.preco * pp.quantidade) AS Total
+FROM 
+    funcionarios f
+JOIN 
+    mesas m ON f.id = m.funcionario_id
+JOIN 
+    pedidos ped ON m.id = ped.mesa_id
+JOIN 
+    produtos_pedidos pp ON ped.id = pp.pedido_id
+JOIN 
+    produtos p ON pp.produto_id = p.id
+GROUP BY 
+    f.nome, m.id
+ORDER BY 
+    Total DESC;
