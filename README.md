@@ -30,7 +30,7 @@ Este sistema permite consultas que facilitam a operação do restaurante.
 Exemplo de consulta personalizada:
 Total de vendas por funcionário e mesa:
 
-SELECT 
+```SELECT 
     f.nome AS Funcionario,
     m.id AS Mesa,
     SUM(p.preco * pp.quantidade) AS Total
@@ -47,4 +47,4 @@ JOIN
 GROUP BY 
     f.nome, m.id
 ORDER BY 
-    Total DESC;
+    Total DESC;```
